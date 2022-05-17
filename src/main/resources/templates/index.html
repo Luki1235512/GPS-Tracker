@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+</head>
+<body>
+<form th:action="@{/process_location}" th:object="${geo}" method="post">
+
+    <label> Latitude: </label>
+    <input id="latitude" th:field="*{latitude}" readonly>
+
+    <label> Longitude: </label>
+    <input id="longitude" th:field="*{longitude}" readonly>
+
+    <label> DeviceID: </label>
+    <input id="deviceID" th:field="*{deviceID}" readonly>
+
+    <div class="btn-custom">
+        <button type="submit" class="btn btn-primary ">Zapisz</button>
+    </div>
+
+</form>
+
+
+<div>
+    <table class="table table-striped table-bordered">
+        <thead class="thead-dark">
+        <tr>
+            <th>latitude</th>
+            <th>longitude</th>
+            <th>deviceID</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="geo: ${listGeo}">
+            <td th:text="${geo.latitude}">E-mail</td>
+            <td th:text="${geo.longitude}">First Name</td>
+            <td th:text="${geo.deviceID}">Last Name</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+
+
+
+<script>
+    var x = document.getElementById("demo");
+
+    window.onload = function getLocation() {
+        if (navigator.geolocation) {
+
+            navigator.geolocation.getCurrentPosition(showPosition);
+
+        } else {
+            x.innerHTML = "Geolocation is not supported";
+        }
+    }
+
+    function showPosition(position) {
+            $.getJSON("https://api.ipify.org?format=json", function(data) {
+                // console.log(data)
+                // $("#deviceID").html("<p>DeviceID: " + "<h3 th:field='*{deviceID}'>" + data.ip + "</h3></p>");
+            })
+
+
+
+        document.getElementById('latitude').value = position.coords.latitude
+        document.getElementById('longitude').value = position.coords.longitude
+
+        $.getJSON("https://api.ipify.org?format=json", function(data) {
+            $("#deviceID").val(data.ip)
+        })
+
+
+
+    }
+
+
+
+
+</script>
+
+
+
+
+
+</body>
+</html>
