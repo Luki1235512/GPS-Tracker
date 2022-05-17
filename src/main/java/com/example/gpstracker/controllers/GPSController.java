@@ -30,10 +30,6 @@ public class GPSController {
     @PostMapping("/process_location")
     public String processLocation(Geolocation geo) {
 
-        System.out.println(geo.getDeviceID());
-        System.out.println(geo.getLatitude());
-        System.out.println(geo.getLongitude());
-
         geoRepo.save(geo);
 
         return "location_saved";
