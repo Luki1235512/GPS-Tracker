@@ -1,5 +1,7 @@
 package com.example.gpstracker.models;
 
+import com.sun.istack.NotNull;
+
 import javax.persistence.*;
 
 @Entity
@@ -9,14 +11,15 @@ public class Geolocation {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(nullable = false, length = 24)
+    @NotNull
     private String latitude;
 
-    @Column(nullable = false, length = 24)
+    @NotNull
     private String longitude;
 
-    @Column(nullable = false, length = 24)
+    @NotNull
     private String deviceID;
+
 
     public Long getId() {
         return id;
