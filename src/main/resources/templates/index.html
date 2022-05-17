@@ -7,6 +7,13 @@
 
 </head>
 <body>
+
+<div>
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="Sign Out" />
+    </form>
+</div>
+
 <form th:action="@{/process_location}" th:object="${geo}" method="post">
 
     <label> Latitude: </label>

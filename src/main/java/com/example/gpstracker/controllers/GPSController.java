@@ -1,4 +1,4 @@
-package com.example.gpstracker;
+package com.example.gpstracker.controllers;
 
 import com.example.gpstracker.models.Geolocation;
 import com.example.gpstracker.repositories.GeolocationRepository;
