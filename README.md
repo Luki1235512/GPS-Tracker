@@ -8,4 +8,4 @@ To run application locally:
 - Allow location access
 
 Main page:
-![gpsapp](https://user-images.githubusercontent.com/49656590/168803503-a7ba6592-2982-478a-b88f-a753d7bf2deb.png)
+![gpsapp](https://user-images.githubusercontent.com/49656590/168803728-c721dd8f-159d-43e4-a5a1-d1a1bb14c5c2.png)
